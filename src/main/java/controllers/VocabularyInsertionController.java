@@ -103,13 +103,17 @@ public class VocabularyInsertionController {
                 if (result.isPresent() && result.get().equals(ButtonType.CLOSE)) {
                     clearTextFields();
                 }
-            } else {
-                Alert alert = new Alert(Alert.AlertType.WARNING, "Your word is duplicate", ButtonType.CLOSE);
-                Optional<ButtonType> result = alert.showAndWait();
-                if (result.isPresent() && result.get().equals(ButtonType.CLOSE)) {
-                    clearTextFields();
-                }
             }
+// TODO           else if () {
+//
+//            }
+// TODO           else {
+//                Alert alert = new Alert(Alert.AlertType.WARNING, "Your word is duplicate", ButtonType.CLOSE);
+//                Optional<ButtonType> result = alert.showAndWait();
+//                if (result.isPresent() && result.get().equals(ButtonType.CLOSE)) {
+//                    clearTextFields();
+//                }
+//            }
         } else if (wordTextField.getText().length() > 0 && meaningTextField.getText().length() == 0) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please fill meaning of word", ButtonType.OK);
             Optional<ButtonType> result = alert.showAndWait();
