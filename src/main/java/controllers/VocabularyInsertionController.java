@@ -17,6 +17,8 @@ import java.sql.Connection;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 public class VocabularyInsertionController {
     private static SqliteConnection sqliteConnection = new SqliteConnection();
     private static Connection connection = sqliteConnection.connect();
@@ -79,11 +81,13 @@ public class VocabularyInsertionController {
         meaningTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if (event.getCode() == KeyCode.ENTER) {
+                if (event.getCode() == KeyCode.ENTER && (meaningTextField.getText() != null && wordTextField.getText() != null)) {
                     handle_AddButton();
                 }
             }
         });
+        
+        
     }
 
     public void setDate() {
