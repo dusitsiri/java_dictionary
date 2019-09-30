@@ -17,6 +17,8 @@ import java.sql.Connection;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 public class VocabularyInsertionController {
     private static SqliteConnection sqliteConnection = new SqliteConnection();
     private static Connection connection = sqliteConnection.connect();
@@ -84,6 +86,7 @@ public class VocabularyInsertionController {
                 }
             }
         });
+        
         
     }
 
