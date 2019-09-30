@@ -1,0 +1,36 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+
+<!--<?import javafx.scene.control.Button?>-->
+<!--<?import javafx.scene.control.Label?>-->
+<!--<?import javafx.scene.control.TableColumn?>-->
+<!--<?import javafx.scene.control.TableView?>-->
+<!--<?import javafx.scene.control.cell.PropertyValueFactory?>-->
+<!--<?import javafx.scene.layout.AnchorPane?>-->
+
+<!--<AnchorPane prefHeight="483.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DictionariesController">-->
+
+    <!--<TableView fx:id="dictionayTableView" layoutX="30.0" layoutY="59.0" prefHeight="341.0" prefWidth="682.0">-->
+        <!--<columns>-->
+            <!--<TableColumn prefWidth="54.0" text="Id">-->
+                <!--<cellValueFactory>-->
+                    <!--<PropertyValueFactory property="id" />-->
+                <!--</cellValueFactory>-->
+            <!--</TableColumn>-->
+
+            <!--<TableColumn minWidth="0.0" prefWidth="276.0" text="Word">-->
+                <!--<cellValueFactory>-->
+                    <!--<PropertyValueFactory property="word" />-->
+                <!--</cellValueFactory>-->
+            <!--</TableColumn>-->
+
+            <!--<TableColumn minWidth="0.0" prefWidth="382.0" text="Meaning">-->
+                <!--<cellValueFactory>-->
+                    <!--<PropertyValueFactory property="meaning" />-->
+                <!--</cellValueFactory>-->
+            <!--</TableColumn>-->
+
+        <!--</columns>-->
+    <!--</TableView>-->
+   <!--<Button onAction="#handle_Back_Button" layoutX="30.0" layoutY="438.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="74.0" text="Back" />-->
+
+<!--</AnchorPane>-->
