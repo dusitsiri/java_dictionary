@@ -48,7 +48,7 @@ public class SqliteConnection {
     public boolean insert(Vocabulary vocabulary){
         try{
             String query = "insert into vocabulary (id, word, meaning) values " +
-                    "(\'"+vocabulary.getId()+"\', \'"+vocabulary.getWord()+"\', \'"+vocabulary.getMeaning()+"\')";
+                    "(\'"+vocabulary.getId()+"\', \'"+vocabulary.getWord()+"\', \'"+vocabulary.getType()+"\', \'"+vocabulary.getMeaning()+"\')";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.executeUpdate();
             System.out.println("Insertion success");
@@ -91,8 +91,9 @@ public class SqliteConnection {
             while (resultSet.next()){
                 int id = resultSet.getInt("id");
                 String word = resultSet.getString("word");
+                String type = resultSet.getString("type");
                 String meaning = resultSet.getString("meaning");
-                dictionaries.add(new Vocabulary(id, word, meaning));
+                dictionaries.add(new Vocabulary(id, word, type, meaning));
             }
         } catch (SQLException e){
             e.printStackTrace();

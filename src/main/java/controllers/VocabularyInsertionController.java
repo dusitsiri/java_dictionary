@@ -79,7 +79,7 @@ public class VocabularyInsertionController {
         meaningTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if (event.getCode() == KeyCode.ENTER) {
+                if (event.getCode() == KeyCode.ENTER && wordTextField.getText() != null && meaningTextField.getText() != null) {
                     handle_AddButton();
                 }
             }
