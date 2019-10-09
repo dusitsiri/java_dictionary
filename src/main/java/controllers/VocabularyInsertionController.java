@@ -30,6 +30,8 @@ public class VocabularyInsertionController {
     @FXML
     private MenuButton typeWordItem;
     @FXML
+    private MenuItem pronounItem, verbItem, adjectiveItem, adverbItem, prepositionItem, conjunctionItem, interjectionItem;
+    @FXML
     private Button addButton, deleteButton, cancelButton, myDictionaryButton;
 
     private String date = LocalDateTime.now().toLocalDate().toString();
@@ -39,12 +41,17 @@ public class VocabularyInsertionController {
     public void initialize() {
         clearTextFields();
         setDate();
-        typeWordItem.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                System.out.println(typeWordItem.getItems().get(typeWordItem.ge));
-            }
-        });
+
+        pronounItem = new MenuItem("pronoun");
+        verbItem = new MenuItem("verb");
+        adjectiveItem = new MenuItem("adjective");
+        adverbItem = new MenuItem("adverb");
+        prepositionItem = new MenuItem("preposition");
+        conjunctionItem = new MenuItem("conjunction");
+        interjectionItem = new MenuItem("interjection");
+        typeWordItem.getItems().addAll(pronounItem,verbItem,adjectiveItem,adverbItem,prepositionItem,conjunctionItem,interjectionItem);
+
+        typeWordItem.setOnMouseClicked();
 
 
 //        dictionaryTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {

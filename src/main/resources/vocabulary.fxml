@@ -42,15 +42,15 @@
                 <TextField fx:id="wordTextField" prefHeight="31.0" prefWidth="269.0" promptText="add your word here" GridPane.rowIndex="1" />
                 <Label prefHeight="17.0" prefWidth="100.0" text="Type" GridPane.rowIndex="3" />
                 <MenuButton fx:id="typeWordItem" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="noun" GridPane.rowIndex="4">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="pronoun" />
-                        <MenuItem mnemonicParsing="false" text="verb" />
-                        <MenuItem mnemonicParsing="false" text="adjective" />
-                        <MenuItem mnemonicParsing="false" text="adverb" />
-                        <MenuItem mnemonicParsing="false" text="preposition" />
-                        <MenuItem mnemonicParsing="false" text="conjunction" />
-                        <MenuItem mnemonicParsing="false" text="interjection" />
-                    </items>
+<!--                    <items>-->
+<!--                        <MenuItem fx:id="pronounItem" mnemonicParsing="false" text="pronoun" />-->
+<!--                        <MenuItem fx:id="verbItem" mnemonicParsing="false" text="verb" />-->
+<!--                        <MenuItem fx:id="adjectiveItem" mnemonicParsing="false" text="adjective" />-->
+<!--                        <MenuItem fx:id="adverbItem" mnemonicParsing="false" text="adverb" />-->
+<!--                        <MenuItem fx:id="prepositionItem" mnemonicParsing="false" text="preposition" />-->
+<!--                        <MenuItem fx:id="conjunctionItem" mnemonicParsing="false" text="conjunction" />-->
+<!--                        <MenuItem fx:id="interjectionItem" mnemonicParsing="false" text="interjection" />-->
+<!--                    </items>-->
                 </MenuButton>
                 <Label prefHeight="21.0" prefWidth="95.0" text="Meaning" GridPane.rowIndex="6" />
                 <TextField fx:id="meaningTextField" prefHeight="31.0" prefWidth="269.0" promptText="add your meaning here" GridPane.rowIndex="7" />
