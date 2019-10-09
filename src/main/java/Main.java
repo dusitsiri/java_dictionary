@@ -20,7 +20,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("vocabulary.fxml"));
         primaryStage.setTitle("My Dictionary");
-        primaryStage.setScene(new Scene(root, 1007, 437));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 

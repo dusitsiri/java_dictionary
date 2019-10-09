@@ -28,6 +28,8 @@ public class VocabularyInsertionController {
     @FXML
     private TextField wordTextField, meaningTextField;
     @FXML
+    private MenuButton typeWordItem;
+    @FXML
     private Button addButton, deleteButton, cancelButton, myDictionaryButton;
 
     private String date = LocalDateTime.now().toLocalDate().toString();
@@ -37,6 +39,13 @@ public class VocabularyInsertionController {
     public void initialize() {
         clearTextFields();
         setDate();
+        typeWordItem.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                System.out.println(typeWordItem.getItems().get(typeWordItem.ge));
+            }
+        });
+
 
 //        dictionaryTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 //            @Override
@@ -96,7 +105,7 @@ public class VocabularyInsertionController {
 
     public void handle_AddButton() {
         if (wordTextField.getText().matches("[a-zA-Z]+") && meaningTextField.getText().length() > 0) {
-            Vocabulary vocabulary = new Vocabulary(sqliteConnection.getMaxId(), wordTextField.getText(), meaningTextField.getText());
+            Vocabulary vocabulary = new Vocabulary(sqliteConnection.getMaxId(), wordTextField.getText(), typeWordItem.getItems().toString(), meaningTextField.getText());
             if (sqliteConnection.insert(vocabulary)) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Success", ButtonType.CLOSE);
                 Optional<ButtonType> result = alert.showAndWait();

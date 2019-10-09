@@ -73,7 +73,8 @@ public class SqliteConnection {
     public void update(Vocabulary vocabulary){
         try{
             String query = "update vocabulary set " +
-                    "meaning=\'"+vocabulary.getMeaning()+"\' where id == \'"+vocabulary.getId()+"\'";
+                    "meaning=\'"+vocabulary.getMeaning()+"\'" +
+                    "type=\'"+vocabulary.getType()+"\' where id == \'"+vocabulary.getId()+"\'";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.executeUpdate();
             System.out.println("Updation success");
