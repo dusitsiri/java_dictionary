@@ -47,7 +47,7 @@ public class SqliteConnection {
 
     public boolean insert(Vocabulary vocabulary){
         try{
-            String query = "insert into vocabulary (id, word, meaning) values " +
+            String query = "insert into vocabulary (id, word, type, meaning) values " +
                     "(\'"+vocabulary.getId()+"\', \'"+vocabulary.getWord()+"\', \'"+vocabulary.getType()+"\', \'"+vocabulary.getMeaning()+"\')";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.executeUpdate();

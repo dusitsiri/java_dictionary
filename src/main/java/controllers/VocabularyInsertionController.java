@@ -1,5 +1,7 @@
 package controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -28,74 +30,32 @@ public class VocabularyInsertionController {
     @FXML
     private TextField wordTextField, meaningTextField;
     @FXML
-    private MenuButton typeWordItem;
-    @FXML
-    private MenuItem pronounItem, verbItem, adjectiveItem, adverbItem, prepositionItem, conjunctionItem, interjectionItem;
+    private ComboBox typeWordBox;
     @FXML
     private Button addButton, deleteButton, cancelButton, myDictionaryButton;
 
     private String date = LocalDateTime.now().toLocalDate().toString();
-    private Stage stage;
-    private boolean switchRow = false;
+
+    private boolean typeCheck = false;
 
     public void initialize() {
         clearTextFields();
         setDate();
+        ObservableList<String> list = FXCollections.observableArrayList("noun", "pronoun", "adjective", "adverb", "verb", "conjunction", "interjection");
+        typeWordBox.setItems(list);
 
-        pronounItem = new MenuItem("pronoun");
-        verbItem = new MenuItem("verb");
-        adjectiveItem = new MenuItem("adjective");
-        adverbItem = new MenuItem("adverb");
-        prepositionItem = new MenuItem("preposition");
-        conjunctionItem = new MenuItem("conjunction");
-        interjectionItem = new MenuItem("interjection");
-        typeWordItem.getItems().addAll(pronounItem,verbItem,adjectiveItem,adverbItem,prepositionItem,conjunctionItem,interjectionItem);
-
-        typeWordItem.setOnMouseClicked();
-
-
-//        dictionaryTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-//            @Override
-//            public void handle(MouseEvent event) {
-//                if (event.getClickCount() == 2) {
-//                    Stage popupwindow = new Stage();
-//                    popupwindow.initModality(Modality.APPLICATION_MODAL);
-//
-//                    popupwindow.setTitle("Edit Vocabulary");
-//                    Label label0 = new Label("id: " + dictionaryTableView.getSelectionModel().getSelectedItem().getId());
-//                    Label label1 = new Label("Word: " + dictionaryTableView.getSelectionModel().getSelectedItem().getWord());
-//                    Label label2 = new Label("Meaning");
-//                    TextField textField2 = new TextField(dictionaryTableView.getSelectionModel().getSelectedItem().getMeaning());
-//                    Button button1 = new Button("Ok");
-//
-//
-//                    button1.setOnAction(e -> popupwindow.close());
-//                    VBox layout = new VBox(10);
-//                    layout.getChildren().addAll(label0, label1, label2, textField2, button1);
-//                    layout.setAlignment(Pos.CENTER);
-//                    Scene scene1 = new Scene(layout, 500, 400);
-//                    popupwindow.setScene(scene1);
-//                    popupwindow.showAndWait();
-//
-//                    button1.setOnMouseClicked(new EventHandler<MouseEvent>() {
-//                        @Override
-//                        public void handle(MouseEvent event) {
-//                            if (event.getClickCount() == 1) {
-//                                System.out.println("yes");
-//                                System.out.println(label0.getText().substring(4));
-//                                Vocabulary vocabulary = new Vocabulary(Integer.parseInt(label0.getText().substring(4)), label1.getText().substring(6), textField2.getText());
-//                                sqliteConnection.update(vocabulary);
-//                            }
-//                        }
-//                    });
-//                }
-//            }
-//        });
-
+        typeWordBox.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (typeWordBox.getSelectionModel().getSelectedItem() != "select type"){
+                    typeCheck = true;
+                }
+            }
+        });
         meaningTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if (event.getCode() == KeyCode.ENTER && wordTextField.getText() != null && meaningTextField.getText() != null) {
+                if (event.getCode() == KeyCode.ENTER && wordTextField.getText() != null && typeCheck && meaningTextField.getText() != null) {
                     handle_AddButton();
                 }
             }
@@ -112,44 +72,47 @@ public class VocabularyInsertionController {
 
     public void handle_AddButton() {
         if (wordTextField.getText().matches("[a-zA-Z]+") && meaningTextField.getText().length() > 0) {
-            Vocabulary vocabulary = new Vocabulary(sqliteConnection.getMaxId(), wordTextField.getText(), typeWordItem.getItems().toString(), meaningTextField.getText());
+            Vocabulary vocabulary = new Vocabulary(sqliteConnection.getMaxId(), wordTextField.getText(), typeWordBox.getSelectionModel().getSelectedItem().toString(), meaningTextField.getText());
             if (sqliteConnection.insert(vocabulary)) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Success", ButtonType.CLOSE);
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.isPresent() && result.get().equals(ButtonType.CLOSE)) {
                     clearTextFields();
                 }
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Your word is duplicate", ButtonType.CLOSE);
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get().equals(ButtonType.CLOSE)) {
+                    clearTextFields();
+                }
             }
-// TODO           else if () {
-//
-//            }
-// TODO           else {
-//                Alert alert = new Alert(Alert.AlertType.WARNING, "Your word is duplicate", ButtonType.CLOSE);
-//                Optional<ButtonType> result = alert.showAndWait();
-//                if (result.isPresent() && result.get().equals(ButtonType.CLOSE)) {
-//                    clearTextFields();
-//                }
-//            }
-        } else if (wordTextField.getText().length() > 0 && meaningTextField.getText().length() == 0) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Please fill meaning of word", ButtonType.OK);
+        } else if (wordTextField.getText().length() > 0 && !typeCheck && meaningTextField.getText().length() == 0) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please select type and fill meaning word", ButtonType.OK);
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get().equals(ButtonType.OK)) {
                 meaningTextField.requestFocus();
             }
-        } else if (wordTextField.getText().length() == 0 && meaningTextField.getText().length() > 0) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Please fill your word", ButtonType.OK);
+        } else if (wordTextField.getText().length() > 0 && typeCheck && meaningTextField.getText().length() == 0) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please fill meaning of word", ButtonType.OK);
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get().equals(ButtonType.OK)) {
                 wordTextField.requestFocus();
             }
-        } else if (wordTextField.getText().length() == 0 && meaningTextField.getText().length() == 0) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Please fill word and meaning");
+        } else if (wordTextField.getText().length() == 0 && typeCheck && meaningTextField.getText().length() > 0) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please fill your word");
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get().equals(ButtonType.OK)) {
                 clearTextFields();
             }
-        } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Wrong word form");
+        } else if (wordTextField.getText().length() == 0 && !typeCheck && meaningTextField.getText().length() > 0) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please fill word and select type");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get().equals(ButtonType.OK)) {
+                clearTextFields();
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please fill word");
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get().equals(ButtonType.OK)) {
                 wordTextField.clear();
