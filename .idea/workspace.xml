@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="efb4fe29-445c-47ef-b47c-8f1616421a2b" name="Default Changelist" comment="">
+    <list default="true" id="ac34e400-ed01-4dc0-bfdd-ac2649df378c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/VocabularyInsertionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/VocabularyInsertionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sqlite_database/SqliteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sqlite_database/SqliteConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vocabulary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vocabulary.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vocabulary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vocabulary.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vocabulary.db" beforeDir="false" afterPath="$PROJECT_DIR$/vocabulary.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/DictionariesController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/HomeScreenController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dictionary.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/homescreens.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,15 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1RWGHRvOnifMcpZLlA6Nljud5SW" />
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-  </component>
+  <component name="ProjectId" id="1SGjwoQDBeH9fLoKCBKkCK569gY" />
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -58,11 +57,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="efb4fe29-445c-47ef-b47c-8f1616421a2b" name="Default Changelist" comment="" />
-      <created>1569775351870</created>
+      <changelist id="ac34e400-ed01-4dc0-bfdd-ac2649df378c" name="Default Changelist" comment="" />
+      <created>1571197067951</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1569775351870</updated>
+      <updated>1571197067951</updated>
     </task>
     <servers />
   </component>
@@ -71,9 +70,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>

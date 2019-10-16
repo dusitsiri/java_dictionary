@@ -1,6 +1,0 @@
-Main.class
-controllers\HomeScreenController.class
-controllers\VocabularyInsertionController$1.class
-models\Vocabulary.class
-controllers\VocabularyInsertionController.class
-sqlite_database\SqliteConnection.class
